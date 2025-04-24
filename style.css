@@ -1,0 +1,253 @@
+   /* === NOVA PALETA DE CORES === */
+   :root {
+    --preto: #0a0a12;
+    --preto-azulado: #111122;
+    --ciano: #00ffff;
+    --verde: #00ff88;
+    --vermelho: #ff5555;
+    --branco: #e0e0ff;
+    --destaque: #ff00ff;
+  }
+
+  /* === ESTRUTURA BASE === */
+  body {
+    margin: 0;
+    background-color: var(--preto);
+    color: var(--branco);
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur'), auto;
+  }
+
+  /* === HEADER === */
+  header {
+    background: linear-gradient(45deg, #1c033a, #9d43d8, #3a0068);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px #6f21a7;
+    border-bottom: 3px solid var(--ciano);
+  }
+
+  header h1 {
+    font-size: 38px; /* Aumentei o tamanho para impacto */
+    color: #000000; /* Verde neon totalmente saturado */
+    text-shadow: 
+        0 0 10px #05079b,
+        0 0 20px #ff0000,
+        0 0 30px #ff2eee,
+        0 0 40px #00ff00;
+    animation: 
+        glitch 1.5s infinite,
+        pulse 0.5s infinite alternate;
+    margin: 0;
+    letter-spacing: 2px; /* Espaçamento para legibilidade */
+}
+
+/* Novo efeito de pulsação */
+@keyframes pulse {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* Efeito glitch atualizado */
+@keyframes glitch {
+    0%, 100% { 
+        transform: translate(0);
+        text-shadow: 
+            0 0 10px #2100db,
+            0 0 20px #2e2bf8,
+            2px 2px 0 #ff00ff,
+            -2px -2px 0 #4400ff;
+    }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, -2px); }
+}
+
+  .slogan {
+    font-size: 10px;
+    color: var(--ciano);
+    margin-top: 10px;
+    animation: blink 1s infinite alternate;
+  }
+
+  /* === NAVEGAÇÃO === */
+  nav {
+    background-color: var(--preto-azulado);
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid var(--ciano);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav a {
+    color: var(--branco);
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 10px;
+    transition: all 0.3s;
+    padding: 5px 10px;
+  }
+
+  nav a:hover {
+    color: var(--vermelho);
+    text-shadow: 0 0 5px var(--vermelho);
+  }
+
+  nav a.active {
+    color: var(--ciano) !important;
+    text-shadow: 0 0 10px var(--ciano);
+    position: relative;
+  }
+
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    font-size: 8px;
+  }
+
+  /* === CONTEÚDO PRINCIPAL === */
+  main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section {
+    background-color: var(--preto-azulado);
+    border: 2px solid #333344;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 8px #330033;
+  }
+
+  .section h2 {
+    font-size: 12px;
+    color: var(--ciano);
+    margin-bottom: 10px;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 10px;
+  }
+
+  .section li {
+    margin-bottom: 8px;
+  }
+
+  .section li::before {
+    content: "• ";
+    color: var(--destaque);
+  }
+
+  .downloads {
+    grid-column: 2;
+    grid-row: span 2;
+  }
+
+  .post {
+    background-color: var(--preto-azulado);
+    border-left: 4px solid var(--verde);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 12px #3a003a;
+    transition: all 0.3s ease;
+  }
+
+  .post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px var(--destaque);
+  }
+
+  .post h2 {
+    color: var(--branco);
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px var(--branco);
+  }
+
+  .post h2::before {
+    content: ">> ";
+    color: var(--destaque);
+  }
+
+  .post p {
+    font-size: 10px;
+    line-height: 1.6;
+    color: #fff9f9;
+  }
+
+  /* === RODAPÉ === */
+  footer {
+    background-color: var(--preto-azulado);
+    text-align: center;
+    padding: 15px;
+    font-size: 9px;
+    color: #999;
+    border-top: 2px solid var(--ciano);
+  }
+
+  .social-links {
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    color: var(--preto);
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  /* === ANIMAÇÕES === */
+  @keyframes glitch {
+    0% { text-shadow: 2px 2px var(--vermelho), -2px -2px var(--ciano); }
+    20% { text-shadow: -2px 0 var(--vermelho), 2px 0 var(--ciano); }
+    40% { text-shadow: 2px -2px var(--vermelho), -2px 2px var(--ciano); }
+    60% { text-shadow: -2px 2px var(--vermelho), 2px -2px var(--ciano); }
+    80% { text-shadow: 0 0 var(--vermelho), 0 0 var(--ciano); }
+    100% { text-shadow: 2px 2px var(--vermelho), -2px -2px var(--ciano); }
+  }
+
+  @keyframes blink {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* === RESPONSIVO === */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+    .section.downloads {
+      grid-column: 1;
+    }
+    nav a {
+      margin: 0 10px;
+      font-size: 8px;
+    }
+  }
+
+  /* === LOADER === */
+  .loader {
+    border: 4px solid var(--preto-azulado);
+    border-top: 4px solid var(--destaque);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+  }
