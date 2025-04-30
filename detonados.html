@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detonados | Game Oculto</title>
+  <link rel="stylesheet" href="/style/detonados.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <button id="neonToggle">NEON_BOOST</button>
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="/artigos.html" class="menu-artigos">Artigos</a>
+          <a href="#">Detonados</a>
+          <a href="#">Downloads</a>
+          <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
+          <a href="#">Sobre</a>
+        </nav>
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <!-- === CONTEÚDO PRINCIPAL === -->
+     <main class="content">
+      <!-- Hero hacker-style -->
+      <section class="hero">
+        <h2><span class="blinker">▌</span> <span id="typewriter-text">DESCUBRA JOGOS OCULTOS</span></h2>
+      </section>
+ 
+
+    <main class="content">
+        <div class="genero-selector">
+            <button data-genero="terror">Terror</button>
+            <button data-genero="rpg">RPG</button>
+            <button data-genero="acao">Ação</button>
+            <button data-genero="plataforma">Plataforma</button>
+          </div>
+          
+          <section id="genero-terror" class="genero-detonado">
+            <h3>Outlast</h3>
+            <p>Guia completo por dentro da Lore do game de terror icônico</p>
+          </section>
+          
+          <section id="genero-rpg" class="genero-detonado">
+            <h3>Undertale</h3>
+            <p>Detonado com todos os finais possíveis e segredos escondidos.</p>
+          </section>
+          
+          <section id="genero-acao" class="genero-detonado">
+            <h3>DOOM Eternal</h3>
+            <p>Como destruir demônios em alta velocidade – guia completo.</p>
+          </section>
+          
+          <section id="genero-plataforma" class="genero-detonado">
+            <h3>Celeste</h3>
+            <p>Passo a passo para completar cada fase e descobrir segredos.</p>
+          </section>
+          
+      
+    </main>
+
+    <script>
+      const frases = [
+      "DESCUBRA JOGOS DESCONHECIDOS",
+      "HACK THE GAME",
+      "HISTÓRIA DOS GAMES E CURIOSIDADES",
+      "JOGOS QUE O ALGORITMO ESCONDEU",
+      "INDIES QUE NINGUÉM TE MOSTROU",
+      "AAA INJUSTIÇADOS E GENIAIS",
+      "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("typewriter-text");
+
+    setInterval(() => {
+      index = (index + 1) % frases.length;
+      textElement.textContent = frases[index];
+    }, 3500);
+
+    document.getElementById("neonToggle").addEventListener("click", () => {
+      document.body.classList.toggle("neon-on");
+    });
+     document.querySelectorAll('.genero-selector button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const genero = btn.dataset.genero;
+
+    document.querySelectorAll('.genero-detonado').forEach(sec => {
+      sec.classList.remove('ativo');
+    });
+
+    document.getElementById('genero-' + genero).classList.add('ativo');
+  });
+});
+
+document.querySelectorAll('.genero-selector button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const genero = btn.dataset.genero;
+
+    document.querySelectorAll('.genero-detonado').forEach(sec => {
+      sec.classList.remove('ativo');
+    });
+
+    document.getElementById('genero-' + genero).classList.add('ativo');
+  });
+});
+
+    </script>
+  </div>
+</body>
+</html>

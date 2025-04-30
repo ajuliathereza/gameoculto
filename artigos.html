@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Oculto - Artigos</title>
+  <link rel="stylesheet" href="/style/artigos.css"> <!-- Seu CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <button id="neonToggle">NEON BOOST</button>
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="#" class="menu-artigos">Artigos</a>
+          <a href="/detonados.html">Detonados</a>
+        <!-- <a href="#">Indies</a> === -->
+         <!-- <a href="#">AAA</a> === -->
+         <!-- <a href="#">Jogos Antigos de PC</a> === -->
+         <!-- <a href="#">Jogos Antigos de Console</a> === -->
+          <a href="#">Downloads</a>
+          <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
+          <a href="#">Sobre</a>
+        </nav>
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <!-- === CONTEÚDO PRINCIPAL === -->
+    <main class="content">
+      <!-- Hero hacker-style -->
+      <section class="hero">
+        <h2><span class="blinker">▌</span> <span id="typewriter-text">DESCUBRA JOGOS OCULTOS</span></h2>
+      </section>
+
+      <!-- Seção de Artigos -->
+      <section class="artigos">
+
+        <!-- Artigo 1 -->
+        <div class="artigo-card">
+          <img src="/style/20250417144322_1.jpg" alt="Capa do Artigo 1">
+          <div class="artigo-conteudo">
+            <h3>🎮 A Revolução dos Indies</h3>
+            <p>Descubra como pequenos estúdios estão dominando a indústria em 2025, trazendo inovação e novas experiências para os jogadores.</p>
+            <a href="#">Ler mais</a>
+          </div>
+        </div>
+
+        <!-- Artigo 2 -->
+        <div class="artigo-card">
+          <img src="/style/20250417144322_1.jpg" alt="Capa do Artigo 2">
+          <div class="artigo-conteudo">
+            <h3>👾 10 Jogos Ocultos para Conhecer</h3>
+            <p>Listamos pérolas escondidas que merecem ser descobertas por quem busca algo além dos grandes lançamentos AAA.</p>
+            <a href="#">Ler mais</a>
+          </div>
+        </div>
+
+        <!-- Artigo 3 -->
+        <div class="artigo-card">
+          <img src="/style/20250417144322_1.jpg" alt="Capa do Artigo 3">
+          <div class="artigo-conteudo">
+            <h3>🕹️ Mods que Transformam Jogos</h3>
+            <p>Veja como a comunidade modder está recriando clássicos e até inventando novos mundos a partir de jogos já existentes.</p>
+            <a href="#">Ler mais</a>
+          </div>
+        </div>
+
+        <!-- Você pode adicionar mais artigos aqui, seguindo o modelo acima -->
+
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const frases = [
+      "DESCUBRA JOGOS DESCONHECIDOS",
+      "HACK THE GAME",
+      "HISTÓRIA DOS GAMES E CURIOSIDADES",
+      "JOGOS QUE O ALGORITMO ESCONDEU",
+      "INDIES QUE NINGUÉM TE MOSTROU",
+      "AAA INJUSTIÇADOS E GENIAIS",
+      "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("typewriter-text");
+
+    setInterval(() => {
+      index = (index + 1) % frases.length;
+      textElement.textContent = frases[index];
+    }, 3500);
+
+    document.getElementById("neonToggle").addEventListener("click", () => {
+      document.body.classList.toggle("neon-on");
+    });
+  </script>
+</body>
+</html>

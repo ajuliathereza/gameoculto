@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Oculto</title>
+  <link rel="stylesheet" href="/style/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <button id="neonToggle">NEON_BOOST</button>
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="/artigos.html" class="menu-artigos">Artigos</a>
+          <a href="/detonados.html">Detonados</a>
+         <!-- <a href="#">Indies</a> === -->
+         <!-- <a href="#">AAA</a> === -->
+         <!-- <a href="#">Jogos Antigos de PC</a> === -->
+         <!-- <a href="#">Jogos Antigos de Console</a> === -->
+          <a href="#">Downloads</a>
+          <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
+          <a href="#">Sobre</a> 
+        </nav>
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <!-- === CONTEÚDO PRINCIPAL === -->
+    <main class="content">
+      <!-- Hero hacker-style -->
+      <section class="hero">
+        <h2><span class="blinker">▌</span> <span id="typewriter-text">DESCUBRA JOGOS OCULTOS</span></h2>
+      </section>
+
+      <!-- Cartões com conteúdos -->
+      <section class="cards">
+        <div class="card">
+          <h3>🎮 Jogo Indie da Semana</h3>
+          <p>Explore o mundo sombrio e mágico de <em>Lucid Void</em>, uma pérola escondida do universo indie com ambientação neon e jogabilidade tensa.</p>
+        </div>
+        <div class="card">
+          <h3>💿 Lore</h3>
+          <p>Descubra como os desenvolvedores de <em>NeuroShell</em> esconderam mensagens criptografadas em arquivos do jogo.</p>
+        </div>
+        <div class="card">
+          <h3>👾 Pixel Arte</h3>
+          <p>Estética glitch e animações 2D ultraestilizadas trazem vida ao novo universo cyberpunk de <em>Rogue Byte</em>.</p>
+        </div>
+      </section>
+
+      <!-- Destaque de notícias com imagem -->
+      <div class="news-highlight">
+        <img src="/style/20250417144322_1.jpg" alt="Notícia 1" id="news-image">
+        <div class="news-caption" id="news-caption">Nova atualização misteriosa de <em>Deadbyte Protocol</em> vazada no GitHub!</div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const frases = [
+      "DESCUBRA JOGOS DESCONHECIDOS",
+      "HACK THE GAME",
+      "HISTÓRIA DOS GAMES E CURIOSIDADES",
+      "JOGOS QUE O ALGORITMO ESCONDEU",
+      "INDIES QUE NINGUÉM TE MOSTROU",
+      "AAA INJUSTIÇADOS E GENIAIS",
+      "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("typewriter-text");
+
+    setInterval(() => {
+      index = (index + 1) % frases.length;
+      textElement.textContent = frases[index];
+    }, 3500);
+
+    document.getElementById("neonToggle").addEventListener("click", () => {
+      document.body.classList.toggle("neon-on");
+    });
+
+    const noticias = [
+      {
+        imagem: "20250417144322_1.jpg",
+        texto: "Nova atualização misteriosa de *Deadbyte Protocol* vazada no GitHub!"
+      },
+      {
+        imagem: "20250417144322_1.jpg",
+        texto: "*CyberStalkers* ganha versão sem censura com novos finais ocultos!"
+      },
+      {
+        imagem: "20250417144322_1.jpg",
+        texto: "Datamine revela arquivos secretos em *Zonebreaker 99*!"
+      }
+    ];
+
+    let noticiaIndex = 0;
+    setInterval(() => {
+      noticiaIndex = (noticiaIndex + 1) % noticias.length;
+      document.getElementById("news-image").src = noticias[noticiaIndex].imagem;
+      document.getElementById("news-caption").textContent = noticias[noticiaIndex].texto;
+    }, 5000);
+  </script>
+</body>
+</html>
