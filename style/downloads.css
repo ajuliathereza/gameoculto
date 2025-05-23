@@ -32,12 +32,13 @@ body {
   border-right: 2px solid var(--accent);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
+  bottom: 0;
+  overflow-y: auto;
 }
+
 
 .logo {
   font-size: 18px;
@@ -182,4 +183,101 @@ h1, h2 {
   color: var(--highlight);
   text-shadow: 0 0 5px var(--highlight);
   background-color: #000013;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 1024px) {
+  .wallpapers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-right: none;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .menu a {
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+  }
+
+  .menu a:hover {
+    border-left: none;
+    border-bottom: 2px solid var(--accent);
+    padding-left: 5px;
+  }
+
+  .logo {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  main {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 20px 15px;
+  }
+
+  .wallpapers-section {
+    padding: 20px 15px;
+  }
+
+  .wallpaper-card {
+    height: auto;
+  }
+
+  .wallpaper-card img {
+    height: auto;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wallpapers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-wallpaper {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .news-caption {
+    font-size: 16px;
+  }
+}
+
+
+/* Destaque para o link "Artigos" */
+.menu a.menu-artigos {
+  color: var(--accent-alt);
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--accent-alt);
+  position: relative;
 }
