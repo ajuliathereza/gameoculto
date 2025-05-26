@@ -154,6 +154,25 @@ footer {
   box-shadow: 0 -1px 8px #00ffff22;
 }
 
+/* Header aprimorado */
+.header-glow {
+  background: radial-gradient(circle at top center, #1a1a2e, #0f0c29, #000);
+  border-bottom: 2px solid #00ffff55;
+  box-shadow: 0 0 25px #00f7ff33, 0 0 10px #8a2be255 inset;
+  position: relative;
+}
+
+.neon-text {
+  color: #00f7ff;
+  text-shadow: 
+    0 0 5px #00f7ff,
+    0 0 10px #00f7ff,
+    0 0 15px #00f7ff,
+    0 0 25px #8a2be2,
+    0 0 35px #ff00ff;
+}
+
+
 /* Responsivo */
 @media (max-width: 640px) {
   main {
