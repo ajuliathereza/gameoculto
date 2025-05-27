@@ -67,53 +67,79 @@
       <div class="news-highlight2">
         <a href="postagens/0002.html" target="_blank" rel="noopener noreferrer">
         <img src="/images/gta_diadeTreinamento6.webp" alt="Notícia 2" id="news-image2"></a>
-        <div class="news-caption" id="news-caption2">Do Cinema ao Game: Como <em>Dia de Treinamento</em> Influenciou GTA: San Andreas</div>
+        <div class="news-caption2" id="news-caption2">Do Cinema ao Game: Como <em>Dia de Treinamento</em> Influenciou GTA: San Andreas</div>
       </div>
     </main>
   </div>
 
 
   <script>
-    const frases = [
-      "DESCUBRA JOGOS DESCONHECIDOS",
-      "HACK THE GAME",
-      "HISTÓRIA DOS GAMES E CURIOSIDADES",
-      "JOGOS QUE O ALGORITMO ESCONDEU",
-      "INDIES QUE NINGUÉM TE MOSTROU",
-      "AAA INJUSTIÇADOS E GENIAIS",
-      "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
-    ];
+  // Frases da animação de texto
+  const frases = [
+    "DESCUBRA JOGOS DESCONHECIDOS",
+    "HACK THE GAME",
+    "HISTÓRIA DOS GAMES E CURIOSIDADES",
+    "JOGOS QUE O ALGORITMO ESCONDEU",
+    "INDIES QUE NINGUÉM TE MOSTROU",
+    "AAA INJUSTIÇADOS E GENIAIS",
+    "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
+  ];
 
-    let index = 0;
-    const textElement = document.getElementById("typewriter-text");
+  let index = 0;
+  const textElement = document.getElementById("typewriter-text");
 
-    setInterval(() => {
-      index = (index + 1) % frases.length;
-      textElement.textContent = frases[index];
-    }, 3500);
+  setInterval(() => {
+    index = (index + 1) % frases.length;
+    textElement.textContent = frases[index];
+  }, 3500);
 
-    document.getElementById("neonToggle").addEventListener("click", () => {
-      document.body.classList.toggle("neon-on");
-    });
+  // Neon toggle
+  document.getElementById("neonToggle").addEventListener("click", () => {
+    document.body.classList.toggle("neon-on");
+  });
 
-    const noticias = [
-      {
-        imagem: "images/gta_diadeTreinamento3.webp",
-        texto: "GTA San Andreas x Dia de Treinamento: As Semelhanças Que Você Não Notou"
-      },
-      {
-        imagem: "images/gta_diadeTreinamento2.jpg",
-        texto: "GTA: San Andreas É Um Reflexo de Dia de Treinamento? Veja as Provas"
-      },
-      
-    ];
+  // ====== PRIMEIRA SEÇÃO DE NOTÍCIAS ======
+  const noticias1 = [
+    {
+      imagem: "/images/punchclub_1.jpg",
+      texto: "Jogo Indie do Mês! PUNCH CLUB: Um game viciante em Pixel Art!"
+    },
+    {
+      imagem: "/images/puchclub_2.jpg",
+      texto: "Indie Revelação: Conheça o game que conquistou os fãs de retrô"
+    }
+  ];
 
-    let noticiaIndex = 0;
-    setInterval(() => {
-      noticiaIndex = (noticiaIndex + 1) % noticias.length;
-      document.getElementById("news-image").src = noticias[noticiaIndex].imagem;
-      document.getElementById("news-caption").textContent = noticias[noticiaIndex].texto;
-    }, 5000);
-  </script>
+  let noticiaIndex1 = 0;
+  setInterval(() => {
+    noticiaIndex1 = (noticiaIndex1 + 1) % noticias1.length;
+    document.getElementById("news-image").src = noticias1[noticiaIndex1].imagem;
+    document.getElementById("news-caption").textContent = noticias1[noticiaIndex1].texto;
+  }, 5000);
+
+  // ====== SEGUNDA SEÇÃO DE NOTÍCIAS ======
+  const noticias2 = [
+    {
+      imagem: "images/gta_diadeTreinamento3.webp",
+      texto: "GTA San Andreas x Dia de Treinamento: As Semelhanças Que Você Não Notou"
+    },
+    {
+      imagem: "images/gta_diadeTreinamento2.jpg",
+      texto: "GTA: San Andreas É Um Reflexo de Dia de Treinamento? Veja as Provas"
+    },
+    {
+      imagem: "images/gta_diadeTreinamento6.webp",
+      texto: "Do Cinema ao Game: Como Dia de Treinamento Influenciou GTA: San Andreas"
+    }
+  ];
+
+  let noticiaIndex2 = 0;
+  setInterval(() => {
+    noticiaIndex2 = (noticiaIndex2 + 1) % noticias2.length;
+    document.getElementById("news-image2").src = noticias2[noticiaIndex2].imagem;
+    document.getElementById("news-caption2").textContent = noticias2[noticiaIndex2].texto;
+  }, 6000); // tempo diferente da primeira
+</script>
+
 </body>
 </html>
