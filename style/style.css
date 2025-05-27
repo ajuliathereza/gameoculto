@@ -343,3 +343,26 @@ footer {
   text-shadow: 0 0 5px var(--highlight);
   background-color: #000013;
 }
+
+@media (max-width: 768px) {
+  .news-highlight,
+  .news-highlight2 {
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+  }
+
+  .news-highlight img,
+  .news-highlight2 img {
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .news-caption,
+  .news-caption2 {
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+}
