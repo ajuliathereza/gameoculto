@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apoiadores - Game Oculto</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .supporter {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffcc44;
+      transition: transform 0.3s;
+    }
+    .supporter:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffcc99;
+    }
+    .supporter-name {
+      color: #00ffcc;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mural de Apoiadores</h1>
+  <p>Obrigado a todos que ajudam a manter o Game Oculto vivo no submundo gamer!</p>
+
+  <div class="grid">
+    <div class="supporter"><div class="supporter-name">Seu nome aqui.</div></div>
+    <div class="supporter"><div class="supporter-name">Seu nome aqui.</div></div>
+    <div class="supporter"><div class="supporter-name">Seu nome aqui,</div></div>
+    <div class="supporter"><div class="supporter-name">Seu nome aqui.</div></div>
+    <div class="supporter"><div class="supporter-name">Seu nome aqui.</div></div>
+    <div class="supporter"><div class="supporter-name">Seu nome aqui.</div></div>
+    <!-- Adicione mais apoiadores aqui -->
+  </div>
+
+  <footer>
+    Cada nome aqui representa um combustível para a resistência gamer. Obrigado por apoiar o oculto. 🖤
+  </footer>
+
+  <div style="text-align: center; margin-top: 40px;">
+  <a href="index.html" style="
+    display: inline-block;
+    background-color: #1a1a1a;
+    color: #00ffcc;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: 1px solid #00ffcc44;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
+  " onmouseover="this.style.backgroundColor='#00ffcc22'" onmouseout="this.style.backgroundColor='#1a1a1a'">
+    ⬅ Voltar para o Início
+  </a>
+</div>
+
+</body>
+</html>
