@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doações - Game Oculto</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .qr-section img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffcc66;
+      margin-bottom: 15px;
+    }
+    .pix-container {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 10px #00ffcc55;
+    }
+    .pix-key {
+      font-size: 16px;
+      color: #00ffcc;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: #00ffcc;
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .copy-btn:hover {
+      background-color: #00ddaa;
+    }
+    .copy-msg {
+      margin-top: 10px;
+      color: #00ffcc;
+      font-size: 14px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons a {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #00ffcc;
+      padding: 12px 20px;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 8px;
+      border: 1px solid #00ffcc44;
+      transition: 0.3s;
+    }
+    .buttons a:hover {
+      background-color: #00ffcc22;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Doe para o Game Oculto</h1>
+  <p>Apoie a criação de conteúdo gamer underground e independente.<br>Ajude a manter o site no ar e desbloqueie conteúdos futuros!</p>
+
+  <!-- Seção com QR Code e chave Pix -->
+  <div class="qr-section">
+    <img src="/images/qrcode.jpg" alt="QR Code para doação Pix">
+    <div class="pix-container">
+      <div class="pix-key" id="pixKey">ede04e66-1bac-4d58-a896-a94d4b2bccc9</div>
+      <button class="copy-btn" onclick="copiarPix()">Copiar chave Pix</button>
+      <div id="mensagem" class="copy-msg"></div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a href="https://apoia.se/gameoculto" target="_blank">Apoia.se</a>
+    <a href="https://gameoculto.site" target="_blank">Site Oficial</a>
+    <a href="https://discord.gg/RVYkrQVe" target="_blank">Discord</a>
+  </div>
+
+  <footer>
+    Obrigado por manter a chama do Game Oculto acesa. 🎮
+  </footer>
+
+  <script>
+    function copiarPix() {
+      const chave = document.getElementById('pixKey').textContent;
+      navigator.clipboard.writeText(chave).then(() => {
+        document.getElementById('mensagem').textContent = 'Chave copiada com sucesso!';
+      });
+    }
+  </script>
+
+</body>
+</html>

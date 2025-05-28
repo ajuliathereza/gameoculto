@@ -224,6 +224,29 @@
     border-radius: 3px;
   }
   
+  .donate-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-donate {
+  background-color: var(--accent);
+  color: #000;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--accent);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-donate:hover {
+  background-color: var(--accent-alt);
+  transform: scale(1.05);
+}
+
+
   /* === RESPONSIVO === */
   @media (max-width: 768px) {
     .container {
