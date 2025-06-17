@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@gameoculto</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', monospace, sans-serif;
+    }
+
+    body {
+      background: #0a0a1e;
+      color: #a6a0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      flex-direction: column;
+      text-align: center;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #7f6fff;
+      text-shadow:
+        0 0 8px #7f6fff,
+        0 0 20px #9a7fff,
+        0 0 40px #a07fff;
+      margin-bottom: 15px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 12px;
+      height: 40px;
+      background-color: #7f6fff;
+      animation: blink 1s steps(2, start) infinite;
+      margin-left: 6px;
+      border-radius: 3px;
+      vertical-align: bottom;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    p.bio {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 35px;
+      color: #9a8fffcc;
+      text-shadow: 0 0 6px #7f6fff99;
+      line-height: 1.6;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 40px;
+    }
+
+    .links a {
+      display: block;
+      padding: 14px 25px;
+      background: linear-gradient(90deg, #6e66ff 0%, #aa7fff 100%);
+      color: #f0eaff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 35px;
+      text-decoration: none;
+      box-shadow:
+        0 0 8px #8369ff,
+        0 0 15px #aa7fff,
+        0 0 25px #aa7fff;
+      transition: all 0.25s ease;
+      user-select: text;
+    }
+
+    .links a:hover {
+      background: linear-gradient(90deg, #aa7fff 0%, #6e66ff 100%);
+      color: #1a143a;
+      box-shadow:
+        0 0 20px #aa7fff,
+        0 0 40px #aa7fff,
+        0 0 50px #aa7fff;
+      transform: scale(1.08);
+    }
+
+    footer {
+      color: #5a529faa;
+      font-size: 0.85rem;
+      user-select: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      p.bio {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        padding: 0 10px;
+      }
+      .links {
+        max-width: 100%;
+        gap: 12px;
+      }
+      .links a {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>@gameoculto<span class="cursor"></span></h1>
+  <p class="bio">
+    Game Oculto é seu refúgio para descobrir o que ninguém mostra no mundo dos games: análises de jogos indies, histórias ocultas, títulos AAA injustiçados e tudo que envolve o universo underground dos videogames.
+  </p>
+
+  <div class="links">
+    <a href="https://instagram.com/gameoculto" target="_blank" rel="noopener noreferrer">@gameoculto</a>
+    <a href="https://instagram.com/c4tsyst3m" target="_blank" rel="noopener noreferrer">@c4tsyst3m (admin)</a>
+    <a href="https://www.youtube.com/@GameOculto" target="_blank" rel="noopener noreferrer">Youtube</a>
+    <a href="mailto:gameoculto@outlook.com">Email: gameoculto@outlook.com</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Game Oculto.
+  </footer>
+</body>
+</html>
