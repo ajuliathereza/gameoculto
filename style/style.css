@@ -161,18 +161,26 @@ footer {
 /* === BOTÃO NEON === */
 #neonToggle {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   z-index: 999;
-  background-color: transparent;
+  background-color: var(--bg-secondary);
   border: 2px solid var(--accent);
   color: var(--accent);
-  padding: 8px 12px;
+  padding: 10px 15px;
   font-family: var(--font-terminal);
-  font-size: 10px;
+  font-size: 12px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   text-shadow: var(--neon-glow);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+#neonToggle:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 247, 0.3);
 }
 
 #neonToggle:hover {
