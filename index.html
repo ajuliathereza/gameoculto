@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Game Oculto</title>
   <link rel="stylesheet" href="style/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
 </head>
 <body>
   <div class="container">
@@ -37,8 +39,13 @@
     <main class="content">
       <!-- Anúncio Topo -->
       <div class="ad-container" style="margin-bottom: 20px; text-align: center; min-height: 90px; background-color: rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; border: 1px dashed var(--accent);">
-        <!-- Espaço para código de anúncio -->
-        <p style="color: #666; font-size: 12px;">Espaço para anúncio</p>
+        <!-- Código de anúncio -->
+        <div id="ad-container-top" style="width: 100%; height: 90px;">
+          <script type="text/javascript">
+            // Código de anúncio será injetado aqui
+            console.log('Espaço para anúncio superior');
+          </script>
+        </div>
       </div>
 
       <!-- Hero hacker-style -->
@@ -88,103 +95,165 @@
 
       <!-- Anúncio Meio -->
       <div class="ad-container" style="margin: 30px 0; text-align: center; min-height: 90px; background-color: rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; border: 1px dashed var(--accent);">
-        <!-- Espaço para código de anúncio -->
-        <p style="color: #666; font-size: 12px;">Espaço para anúncio</p>
+        <!-- Código de anúncio -->
+        <div id="ad-container-middle" style="width: 100%; height: 90px;">
+          <script type="text/javascript">
+            // Código de anúncio será injetado aqui
+            console.log('Espaço para anúncio do meio');
+          </script>
+        </div>
       </div>
     </main>
   </div>
 
+  <!-- Script de AnÚncio -->
+  <script type="text/javascript">
+    // Função para carregar anÚncios
+    function loadAds() { 
+      // Código para carregar anÚncios será adicionado aqui
+      console.log('Script de anÚncios carregado');
+      
+      // Exemplo de como carregar um anÚncio
+      // const adContainer = document.getElementById('ad-container-top');
+      // if (adContainer) {
+      //   // Código do anÚncio será injetado aqui
+      // }
+    }
+    
+    // Carrega os anÚncios quando o documento estiver pronto
+    document.addEventListener('DOMContentLoaded', loadAds);
+  </script>
+  <script type="text/javascript">
+    // Script de animação de texto
+    document.addEventListener('DOMContentLoaded', function() {
+      // Frases da animação de texto
+      const frases = [
+        "DESCUBRA JOGOS DESCONHECIDOS",
+        "HACK THE GAME",
+        "HISTÓRIA DOS GAMES E CURIOSIDADES",
+        "JOGOS QUE O ALGORITMO ESCONDEU",
+        "INDIES QUE NINGUÉM TE MOSTROU",
+        "AAA INJUSTIÇADOS E GENIAIS",
+        "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
+      ];
+
+      let index = 0;
+      const textElement = document.getElementById("typewriter-text");
+
+      setInterval(() => {
+        index = (index + 1) % frases.length;
+        textElement.textContent = frases[index];
+      }, 3500);
+
+      // Neon toggle
+      document.getElementById("neonToggle").addEventListener("click", () => {
+        document.body.classList.toggle("neon-on");
+      });
+
+      // ====== PRIMEIRA SEÇÃO DE NOTÍCIAS ======
+      const noticias1 = [
+        {
+          imagem: "images/cs1.webp",
+          texto: "O Super Bowl dos gamers virou replay sem torcida."
+        },
+        {
+          imagem: "images/lol2.jpg",
+          texto: "CBLOL não acabou por falta de amor. Acabou por falta de dinheiro."
+        }
+      ];
+
+      let noticiaIndex1 = 0;
+      setInterval(() => {
+        noticiaIndex1 = (noticiaIndex1 + 1) % noticias1.length;
+        document.getElementById("news-image").src = noticias1[noticiaIndex1].imagem;
+        document.getElementById("news-caption").textContent = noticias1[noticiaIndex1].texto;
+      }, 5000);
+
+      // ====== SEGUNDA SEÇÃO DE NOTÍCIAS ======
+      const noticias2 = [
+        {
+          imagem: "images/specops3.png",
+          texto: "Spec Ops: The Line – O Jogo Que Te Faz Se Sentir o Vilão"
+        },
+        {
+          imagem: "images/specops5.png",
+          texto: "Por Que Spec Ops: The Line Sumiu da Steam? A Verdade Que Ninguém Contou"
+        },
+        {
+          imagem: "images/specops4.png",
+          texto: "Spec Ops Vai Muito Além do Tiro: Um Game Sobre Culpa e Consequências"
+        }
+      ];
+
+      let noticiaIndex2 = 0;
+      setInterval(() => {
+        noticiaIndex2 = (noticiaIndex2 + 1) % noticias2.length;
+        document.getElementById("news-image2").src = noticias2[noticiaIndex2].imagem;
+        document.getElementById("news-caption2").textContent = noticias2[noticiaIndex2].texto;
+      }, 6000);
+
+      // ====== TERCEIRA SEÇÃO DE NOTÍCIAS ======
+      const noticias3 = [
+        {
+          imagem: "images/TownOfLight1.webp",
+          texto: "A insanidade nem sempre é o fim… às vezes, é o começo."
+        },
+        {
+          imagem: "images/TownOfLight2.jpg",
+          texto: "A dor que o tempo não apagou… ainda ecoa pelos corredores."
+        },
+        {
+          imagem: "images/TownOfLight3.png",
+          texto: "The Town of Light — onde a verdade é mais sombria que a ficção."
+        }
+      ];
+
+      let noticiaIndex3 = 0;
+      setInterval(() => {
+        noticiaIndex3 = (noticiaIndex3 + 1) % noticias3.length;
+        document.getElementById("news-image3").src = noticias3[noticiaIndex3].imagem;
+        document.getElementById("news-caption3").textContent = noticias3[noticiaIndex3].texto;
+      }, 6000);
+    });
+  </script>
+  
+  <!-- Ad Container -->
+  <div id="ad-script-container" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; display: flex; justify-content: center; background: rgba(0,0,0,0.8); padding: 5px 0;">
+    <div id="ad-content" style="max-width: 100%; overflow: hidden; position: relative;">
+      <!-- Ad will be loaded here -->
+    </div>
+  </div>
+
   <script>
-  // Frases da animação de texto
-  const frases = [
-    "DESCUBRA JOGOS DESCONHECIDOS",
-    "HACK THE GAME",
-    "HISTÓRIA DOS GAMES E CURIOSIDADES",
-    "JOGOS QUE O ALGORITMO ESCONDEU",
-    "INDIES QUE NINGUÉM TE MOSTROU",
-    "AAA INJUSTIÇADOS E GENIAIS",
-    "SEJA BEM-VINDO AO QUE ESTÁ ESCONDIDO NO MUNDO DOS GAMES"
-  ];
-
-  let index = 0;
-  const textElement = document.getElementById("typewriter-text");
-
-  setInterval(() => {
-    index = (index + 1) % frases.length;
-    textElement.textContent = frases[index];
-  }, 3500);
-
-  // Neon toggle
-  document.getElementById("neonToggle").addEventListener("click", () => {
-    document.body.classList.toggle("neon-on");
-  });
-
-  // ====== PRIMEIRA SEÇÃO DE NOTÍCIAS ======
-  const noticias1 = [
-    {
-      imagem: "images/cs1.webp",
-      texto: "O Super Bowl dos gamers virou replay sem torcida."
-    },
-    {
-      imagem: "images/lol2.jpg",
-      texto: "CBLOL não acabou por falta de amor. Acabou por falta de dinheiro."
-    }
-  ];
-
-  let noticiaIndex1 = 0;
-  setInterval(() => {
-    noticiaIndex1 = (noticiaIndex1 + 1) % noticias1.length;
-    document.getElementById("news-image").src = noticias1[noticiaIndex1].imagem;
-    document.getElementById("news-caption").textContent = noticias1[noticiaIndex1].texto;
-  }, 5000);
-
-  // ====== SEGUNDA SEÇÃO DE NOTÍCIAS ======
-  const noticias2 = [
-  {
-    imagem: "images/specops3.png",
-    texto: "Spec Ops: The Line – O Jogo Que Te Faz Se Sentir o Vilão"
-  },
-  {
-    imagem: "images/specops5.png",
-    texto: "Por Que Spec Ops: The Line Sumiu da Steam? A Verdade Que Ninguém Contou"
-  },
-  {
-    imagem: "images/specops4.png",
-    texto: "Spec Ops Vai Muito Além do Tiro: Um Game Sobre Culpa e Consequências"
-  }
-];
+    // Load ad script with responsive handling
+    (function() {
+      var container = document.getElementById('ad-content');
+      if (!container) return;
+      
+      var script = document.createElement('script');
+      script.src = 'https://vemtoutcheeg.com/400/9524163';
+      script.onload = function() {
+        // After ad loads, adjust its size if needed
+        var iframe = container.querySelector('iframe');
+        if (iframe) {
+          iframe.style.maxWidth = '100%';
+          iframe.style.height = 'auto';
+          iframe.style.display = 'block';
+          iframe.style.margin = '0 auto';
+        }
+      };
+      
+      try {
+        container.appendChild(script);
+      } catch(e) {
+        console.error('Error loading ad:', e);
+      }
+    })();
+  </script>
+  
+  <script src="/global.js"></script>
 
 
-  let noticiaIndex2 = 0;
-  setInterval(() => {
-    noticiaIndex2 = (noticiaIndex2 + 1) % noticias2.length;
-    document.getElementById("news-image2").src = noticias2[noticiaIndex2].imagem;
-    document.getElementById("news-caption2").textContent = noticias2[noticiaIndex2].texto;
-  }, 6000); // tempo diferente da primeira
-
-  // ====== TERCEIRA SEÇÃO DE NOTÍCIAS ======
-  const noticias3 = [
-    {
-      imagem: "images/TownOfLight1.webp",
-      texto: "A insanidade nem sempre é o fim… às vezes, é o começo."
-    },
-    {
-      imagem: "images/TownOfLight2.jpg",
-      texto: "A dor que o tempo não apagou… ainda ecoa pelos corredores."
-    },
-    {
-      imagem: "images/TownOfLight3.png",
-      texto: "The Town of Light — onde a verdade é mais sombria que a ficção."
-    }
-  ];
-
-  let noticiaIndex3 = 0;
-  setInterval(() => {
-    noticiaIndex3 = (noticiaIndex3 + 1) % noticias3.length;
-    document.getElementById("news-image3").src = noticias3[noticiaIndex3].imagem;
-    document.getElementById("news-caption3").textContent = noticias3[noticiaIndex3].texto;
-  }, 6000); // tempo diferente da primeira
-</script>
 
 </body>
 </html>
