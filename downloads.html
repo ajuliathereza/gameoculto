@@ -4,9 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Downloads | Game Oculto</title>
-  <link rel="stylesheet" href="style/downloads.css">
-  <link rel="stylesheet" href="style/menu-mobile-downloads.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/menu-mobile-index.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos específicos para a página de downloads */
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .download-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 247, 0.2);
+      border-color: var(--highlight);
+    }
+
+    .download-card h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(0, 255, 247, 0.2);
+      padding-bottom: 10px;
+    }
+
+    .download-card p {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .download-card .btn-download {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(45deg, var(--accent), #00b3ad);
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .download-card .btn-download:hover {
+      background: linear-gradient(45deg, #00fff7, #00e6e0);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 247, 0.4);
+    }
+
+    .version {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 10px;
+      display: block;
+    }
+
+    .coming-soon {
+      opacity: 0.7;
+      filter: grayscale(30%);
+    }
+
+    .coming-soon .btn-download {
+      background: #666;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -19,60 +95,56 @@
           <a href="index.html">Início</a>
           <a href="artigos.html" class="menu-artigos">Artigos</a>
           <!-- <a href="detonados.html">Detonados</a> -->
-          <a href="downloads.html" class="menu-downloads active">Downloads</a> 
+          <a href="downloads.html" class="active">Downloads</a> 
           <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
           <a href="sobre.html">Sobre</a> 
         </nav>
       </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
     </aside>
 
     <!-- Conteúdo Principal -->
     <main class="content">
+      <!-- Hero hacker-style -->
+      <section class="hero">
+        <h2><span class="blinker">▌</span> <span id="typewriter-text">DOWNLOADS EXCLUSIVOS</span></h2>
+      </section>
 
-  <!-- Seção de ROMs -->
-  <section class="roms-section">
-    <h2>Pack de ROMs part 1</h2>
-    <div class="roms-card">
-      <img src="images/roms2.jpg" alt="Preview do Pack de ROMs">
-      <p>Um pacote com CENTENAS de jogos, dos clássicos e títulos raros: </p>
-      <p> Gameboy (advanced e color também), sega32, MAME, NES e SNES.</p>
-      <p>Estou atualizando os packs adicionando cada vez mais jogos, eles são compatíveis com emuladores populares.</p>
-      <p>Estou atualizando constantemente esse pack e os outros, volte e fique a vontade para rebaixar de tempos em tempos. Vou deixar aqui em qual versão está.</p>
-     <h3>V1.0</h3>
-      <a href="https://shrinkme.ink/romspart1" class="btn-roms" target="_blank">Baixar Pack de ROMs part 1</a>
-    </div>
-  </section>
+      <div class="content-wrapper">
+        <div class="downloads-grid">
+          <!-- Pack de ROMs 1 -->
+          <div class="download-card">
+            <h3>Pack de ROMs part 1</h3>
+            <p>Um pacote com CENTENAS de jogos, dos clássicos e títulos raros: Gameboy (advanced e color também), sega32, MAME, NES e SNES.</p>
+            <p>Compatível com emuladores populares. Atualizações constantes com mais jogos.</p>
+            <span class="version">Versão 1.0</span>
+            <a href="https://shrinkme.ink/romspart1" class="btn-download" target="_blank">BAIXAR AGORA</a>
+          </div>
 
-  <section class="roms-section">
-    <h2>Pack de ROMs part 2</h2>
-    <div class="roms-card">
-      <img src="images/roms4.jpg" alt="Preview do Pack de ROMs">
-      <p>Um pacote com dezenas de jogos, títulos incríveis de PLAYSTATION 1. Compatível com emuladores populares.</p>
-      <p>Estou atualizando constantemente esse pack e os outros, volte e fique a vontade para rebaixar de tempos em tempos. Vou deixar aqui em qual versão está.</p>
-      <h3>V1.0</h3>
-      <a href="hhttps://shrinkme.ink/romspart2" class="btn-roms" target="_blank">Baixar Pack de ROMs</a>
-    </div>
-  </section>
+          <!-- Pack de ROMs 2 -->
+          <div class="download-card">
+            <h3>Pack de ROMs part 2</h3>
+            <p>Um pacote com dezenas de jogos, títulos incríveis de PLAYSTATION 1. Compatível com emuladores populares.</p>
+            <p>Atualizações constantes com mais títulos e melhorias.</p>
+            <span class="version">Versão 1.0</span>
+            <a href="https://shrinkme.ink/romspart2" class="btn-download" target="_blank">BAIXAR AGORA</a>
+          </div>
 
-<!--<section class="roms-section">
-    <h2>Pack de ROMs part 3</h2>
-    <div class="roms-card">
-      <img src="images/roms1.webp" alt="Preview do Pack de ROMs">
-      <p>Um pacote de jogos, incluindo clássicos de Nintendo ds, Nintendo 6 e PSP. Compatível com emuladores populares.</p>
-      <p>Estou atualizando constantemente esse pack e os outros, volte e fique a vontade para rebaixar de tempos em tempos. Vou deixar aqui em qual versão está.</p>
-      <h3>V1.0</h3>
-      
-      <a href="https://shrinkme.ink/romspart1" class="btn-roms" target="_blank">Baixar Pack de ROMs</a>
-    </div>
-  </section> -->
-
-
-</main>
+          <!-- Pack de ROMs 3 (Em breve) -->
+          <div class="download-card coming-soon">
+            <h3>Pack de ROMs part 3 (Em breve)</h3>
+            <p>Em breve: Um pacote de jogos, incluindo clássicos de Nintendo DS, Nintendo 64 e PSP. Compatível com emuladores populares.</p>
+            <p>Estamos preparando algo incrível para você!</p>
+            <span class="version">Lançamento em breve</span>
+            <a href="#" class="btn-download" disabled>EM BREVE</a>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
   
-  <footer class="main-footer">
-    &copy; 2025 Game Oculto. Todos os direitos reservados.
-  </footer>
   <script src="global.js"></script>
   
   <script>
@@ -83,19 +155,41 @@
       // Check for saved user preference, if any, on load
       if (localStorage.getItem('neonMode') === 'enabled') {
         document.body.classList.add('neon-on');
+        neonToggle.textContent = 'NEON_OFF';
       }
       
-      // Toggle neon mode on button click
+      // Toggle neon mode
       neonToggle.addEventListener('click', function() {
         document.body.classList.toggle('neon-on');
         
-        // Save user preference
         if (document.body.classList.contains('neon-on')) {
           localStorage.setItem('neonMode', 'enabled');
+          neonToggle.textContent = 'NEON_OFF';
         } else {
           localStorage.setItem('neonMode', 'disabled');
+          neonToggle.textContent = 'NEON_BOOST';
         }
       });
+      
+      // Typewriter effect
+      const typewriterText = document.getElementById('typewriter-text');
+      const text = 'DOWNLOADS EXCLUSIVOS';
+      let i = 0;
+      
+      function typeWriter() {
+        if (i < text.length) {
+          typewriterText.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        } else {
+          i = 0;
+          typewriterText.textContent = '';
+          setTimeout(typeWriter, 1000);
+        }
+      }
+      
+      // Start the typewriter effect
+      setTimeout(typeWriter, 1000);
     });
   </script>
 </body>

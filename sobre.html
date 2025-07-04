@@ -3,10 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sobre - Game Oculto</title>
-  <link rel="stylesheet" href="style/sobre.css">
-  <link rel="stylesheet" href="style/menu-mobile-sobre.css">
+  <title>Sobre | Game Oculto</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/menu-mobile-index.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos específicos para a página Sobre */
+    .about-section {
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+
+    .about-section h2 {
+      color: var(--accent);
+      margin: 30px 0 20px;
+      font-size: 1.8rem;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 10px;
+    }
+
+    .about-section p {
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 247, 0.2);
+      border-color: var(--highlight);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(45deg, var(--accent), #00b3ad);
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #00fff7, #00e6e0);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 247, 0.4);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(45deg, #666, #444);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(45deg, #777, #555);
+    }
+
+    .social-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .social-links li {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--accent);
+      color: var(--text);
+      border-radius: 4px;
+      font-family: var(--font-terminal);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -28,60 +162,72 @@
         &copy; 2025 Game Oculto. Todos os direitos reservados.
       </footer>
     </aside>
-    
 
-    <!-- Conteúdo -->
+    <!-- Conteúdo Principal -->
     <main class="content">
+      <!-- Hero hacker-style -->
       <section class="hero">
-        <h2><span class="blinker">▌</span> SOBRE O GAME OCULTO</h2>
+        <h2><span class="blinker">▌</span> <span id="typewriter-text">SOBRE O GAME OCULTO</span></h2>
       </section>
 
-      <section class="cards">
-        <div class="card">
-          <h3>👁️ Sobre o Projeto</h3>
+      <div class="content-wrapper">
+        <div class="about-section">
+          <h2>Sobre o Projeto</h2>
           <p>O <strong>Game Oculto</strong> é um espaço dedicado aos jogos esquecidos, ocultos e incríveis que merecem mais atenção. Aqui você encontra análises, histórias, detonados e muito conteúdo dark voltado ao universo gamer.</p>
+          
+          <div class="cards">
+            <!-- Apoie o Projeto -->
+            <div class="card">
+              <h3>💸 Apoie o Game Oculto</h3>
+              <p>Se você curte nosso conteúdo e quer ajudar o projeto a crescer, considere apoiar com uma doação. Toda contribuição faz a diferença!</p>
+              <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                <a href="https://apoia.se/gameoculto" target="_blank" class="btn">Doar via Apoia.se</a>
+                <a href="doacao.html" target="_blank" class="btn btn-secondary">Doar via PIX</a>
+              </div>
+            </div>
+
+            <!-- Mural de Apoiadores -->
+            <div class="card">
+              <h3>🎖️ Mural de Apoiadores</h3>
+              <p>Confira quem está por trás do apoio à resistência gamer underground. Cada nome ali mantém o Game Oculto no ar.</p>
+              <div style="margin-top: 20px;">
+                <a href="apoiadores.html" class="btn" target="_blank">Ver Apoiadores</a>
+              </div>
+            </div>
+
+            <!-- Redes Sociais -->
+            <div class="card">
+              <h3>🔗 Redes Sociais</h3>
+              <ul class="social-links">
+                <li><a href="https://www.youtube.com/@GameOculto" target="_blank"><span>▶</span> YouTube</a></li>
+                <li><a href="https://instagram.com/seuusuario" target="_blank"><span>📷</span> Instagram</a></li>
+                <li><a href="#" target="_blank"><span>🎮</span> Steam</a></li>
+                <li><a href="mailto:seu@email.com"><span>📧</span> Email</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Formulário de Contato -->
+          <div class="card" style="margin-top: 30px;">
+            <h3>📨 Entre em Contato</h3>
+            <form action="https://formsubmit.co/seu@email.com" method="POST" class="form">
+              <div class="form-group">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+              </div>
+              <div class="form-group">
+                <textarea name="mensagem" placeholder="Sua mensagem" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+            </form>
+          </div>
         </div>
-
-<div class="card">
-  <h3>💸 Apoie o Game Oculto</h3>
-  <p>Se você curte nosso conteúdo e quer ajudar o projeto a crescer, considere apoiar com uma doação. Toda contribuição faz a diferença!</p>
-  <div class="donate-buttons">
-    <a href="https://apoia.se/gameoculto" target="_blank" class="btn-donate">Doar via Apoia.se</a>
-    <a href="doacao.html" target="_blank" class="btn-donate">Doar via PIX</a>
-  </div>
-</div>
-
-<div class="card">
-  <h3>🎖️ Mural de Apoiadores</h3>
-  <p>Confira quem está por trás do apoio à resistência gamer underground. Cada nome ali mantém o Game Oculto no ar.</p>
-  <div class="donate-buttons">
-    <a href="apoiadores.html" class="btn-donate" target="_blank">Ver Apoiadores</a>
-  </div>
-</div>
-
-
-        <div class="card">
-          <h3>🔗 Redes Sociais</h3>
-          <ul style="font-size: 12px; line-height: 1.8;">
-            <li><a href="https://www.youtube.com/@GameOculto" target="_blank" style="color: var(--danger);">▶ YouTube</a></li>
-            <li><a href="https://instagram.com/seuusuario" target="_blank" style="color: var(--accent);">📷 Instagram</a></li>
-            <li><a href="#" target="_blank" style="color: var(--highlight);"> 🎮 Steam</a></li>
-            <li><a href="mailto:seu@email.com" style="color: var(--accent-alt);">📧 Email</a></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>📨 Entre em Contato</h3>
-          <form action="https://formsubmit.co/seu@email.com" method="POST">
-            <input type="text" name="nome" placeholder="Seu nome" required style="width:100%; margin-bottom:10px; padding:8px;">
-            <input type="email" name="email" placeholder="Seu e-mail" required style="width:100%; margin-bottom:10px; padding:8px;">
-            <textarea name="mensagem" placeholder="Sua mensagem" rows="4" required style="width:100%; padding:8px;"></textarea>
-            <button type="submit" style="margin-top:10px; background-color: var(--accent); color:#000; border:none; padding:10px 15px; font-family: var(--font-terminal); cursor:pointer;">Enviar</button>
-          </form>
-        </div>
-      </section>
+      </div>
     </main>
   </div>
+  
   <script>
     // Neon Toggle Functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -90,21 +236,41 @@
       // Check for saved user preference, if any, on load
       if (localStorage.getItem('neonMode') === 'enabled') {
         document.body.classList.add('neon-on');
+        neonToggle.textContent = 'NEON_OFF';
       }
       
-      // Toggle neon mode on button click
-      if (neonToggle) {
-        neonToggle.addEventListener('click', function() {
-          document.body.classList.toggle('neon-on');
-          
-          // Save user preference
-          if (document.body.classList.contains('neon-on')) {
-            localStorage.setItem('neonMode', 'enabled');
-          } else {
-            localStorage.setItem('neonMode', 'disabled');
-          }
-        });
+      // Toggle neon mode
+      neonToggle.addEventListener('click', function() {
+        document.body.classList.toggle('neon-on');
+        
+        if (document.body.classList.contains('neon-on')) {
+          localStorage.setItem('neonMode', 'enabled');
+          neonToggle.textContent = 'NEON_OFF';
+        } else {
+          localStorage.setItem('neonMode', 'disabled');
+          neonToggle.textContent = 'NEON_BOOST';
+        }
+      });
+      
+      // Typewriter effect
+      const typewriterText = document.getElementById('typewriter-text');
+      const text = 'SOBRE O GAME OCULTO';
+      let i = 0;
+      
+      function typeWriter() {
+        if (i < text.length) {
+          typewriterText.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        } else {
+          i = 0;
+          typewriterText.textContent = '';
+          setTimeout(typeWriter, 1000);
+        }
       }
+      
+      // Start the typewriter effect
+      setTimeout(typeWriter, 1000);
     });
   </script>
 </body>
