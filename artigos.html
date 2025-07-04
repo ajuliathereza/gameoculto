@@ -4,26 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Game Oculto - Artigos</title>
-  <link rel="stylesheet" href="style/artigos.css"> <!-- Seu CSS -->
+  <link rel="stylesheet" href="style/artigos.css">
+  <link rel="stylesheet" href="style/menu-mobile-artigos.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <button id="neonToggle">NEON BOOST</button>
-
-    <!-- === SIDEBAR === -->
+    <!-- Menu Fixo -->
+    <button id="neonToggle">NEON_BOOST</button>
     <aside class="sidebar">
       <div>
         <div class="logo">GAME OCULTO</div>
         <nav class="menu">
           <a href="index.html">Início</a>
-          <a href="/artigos.html" class="menu-artigos">Artigos</a>
-          <!-- <a href="/detonados.html">Detonados</a> -->
-          <!-- <a href="#">Indies</a> -->
-          <!-- <a href="#">AAA</a> -->
-          <!-- <a href="#">Jogos Antigos de PC</a> -->
-          <!-- <a href="#">Jogos Antigos de Console</a> -->
-          <a href="downloads.html">Downloads</a>
+          <a href="artigos.html" class="menu-artigos active">Artigos</a>
+          <!-- <a href="detonados.html">Detonados</a> -->
+          <a href="downloads.html">Downloads</a> 
           <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
           <a href="sobre.html">Sobre</a> 
         </nav>
@@ -32,7 +28,6 @@
         &copy; 2025 Game Oculto. Todos os direitos reservados.
       </footer>
     </aside>
-    
 
     <!-- === CONTEÚDO PRINCIPAL === -->
     <main class="content">
@@ -137,9 +132,26 @@ Só não diz que a gente mandou ir naquele site suspeito cheio de anúncio de "c
       index = (index + 1) % frases.length;
       textElement.textContent = frases[index];
     }, 3500);
-
-    document.getElementById("neonToggle").addEventListener("click", () => {
-      document.body.classList.toggle("neon-on");
+    
+    // Neon toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const neonToggle = document.getElementById('neonToggle');
+      if (neonToggle) {
+        neonToggle.addEventListener('click', function() {
+          document.body.classList.toggle('neon-mode');
+          // Save preference to localStorage
+          if (document.body.classList.contains('neon-mode')) {
+            localStorage.setItem('neonMode', 'enabled');
+          } else {
+            localStorage.setItem('neonMode', 'disabled');
+          }
+        });
+        
+        // Check for saved preference
+        if (localStorage.getItem('neonMode') === 'enabled') {
+          document.body.classList.add('neon-mode');
+        }
+      }
     });
   </script>
       <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9524163,document.createElement('script'))</script>

@@ -6,25 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Game Oculto</title>
   <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/menu-mobile-index.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   
 </head>
 <body>
   <div class="container">
+    <!-- Menu Fixo -->
     <button id="neonToggle">NEON_BOOST</button>
-
-    <!-- === SIDEBAR === -->
     <aside class="sidebar">
       <div>
         <div class="logo">GAME OCULTO</div>
         <nav class="menu">
-          <a href="index.html">Início</a>
-          <a href="/artigos.html" class="menu-artigos">Artigos</a>
-         <!-- <a href="/detonados.html">Detonados</a> === -->
-         <!-- <a href="#">Indies</a> === -->
-         <!-- <a href="#">AAA</a> === -->
-         <!-- <a href="#">Jogos Antigos de PC</a> === -->
-         <!-- <a href="#">Jogos Antigos de Console</a> === -->
+          <a href="index.html" class="active">Início</a>
+          <a href="artigos.html" class="menu-artigos">Artigos</a>
+          <!-- <a href="detonados.html">Detonados</a> -->
           <a href="downloads.html">Downloads</a> 
           <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
           <a href="sobre.html">Sobre</a> 
@@ -122,6 +118,31 @@
     
     // Carrega os anÚncios quando o documento estiver pronto
     document.addEventListener('DOMContentLoaded', loadAds);
+  </script>
+  <script type="text/javascript" src="/js/ads.js"></script>
+  <script type="text/javascript" src="/js/ads2.js"></script>
+  
+  <script>
+    // Neon toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const neonToggle = document.getElementById('neonToggle');
+      if (neonToggle) {
+        neonToggle.addEventListener('click', function() {
+          document.body.classList.toggle('neon-mode');
+          // Save preference to localStorage
+          if (document.body.classList.contains('neon-mode')) {
+            localStorage.setItem('neonMode', 'enabled');
+          } else {
+            localStorage.setItem('neonMode', 'disabled');
+          }
+        });
+        
+        // Check for saved preference
+        if (localStorage.getItem('neonMode') === 'enabled') {
+          document.body.classList.add('neon-mode');
+        }
+      }
+    });
   </script>
   <script type="text/javascript">
     // Script de animação de texto
