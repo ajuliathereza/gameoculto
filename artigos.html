@@ -549,41 +549,84 @@
       // Verifica se é mobile para otimizar a experiência
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       
+      // Texto otimizado para compartilhamento
+      const shareText = `${text}\n\n🔗 ${url}\n\n#GameOculto #Games`;
+      
+      // Define a URL base para as imagens
+      const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
+      
+      // Obtém o título do artigo para determinar qual imagem usar
+      const articleTitle = text.split('\n')[0];
+      let imageUrl = '';
+      
+      // Mapeia artigos para suas respectivas imagens
+      if (articleTitle.includes('Punch Club')) {
+        imageUrl = `${baseUrl}/images/punchclub_1.jpg`;
+      } else if (articleTitle.includes('GTA: San Andreas')) {
+        imageUrl = `${baseUrl}/images/gta_diadeTreinamento1.png`;
+      } else if (articleTitle.includes('Town of Light')) {
+        imageUrl = `${baseUrl}/images/TownOfLight1.webp`;
+      } else if (articleTitle.includes('e-sports')) {
+        imageUrl = `${baseUrl}/images/lol1.webp`;
+      } else if (articleTitle.includes('Spec Ops')) {
+        imageUrl = `${baseUrl}/images/specops1.png`;
+      } else {
+        // Imagem padrão caso não encontre correspondência
+        imageUrl = `${baseUrl}/images/qrcode.jpg`;
+      }
+      
       const shareUrls = {
         'instagram': {
-          web: `https://www.instagram.com/`,
-          app: `instagram-stories://share?source_application=YOUR_APP_ID&backgroundImage=${encodeURIComponent('https://seu-site.com/caminho/para/imagem-destacada.jpg')}&sticker=undefined&title=${encodeURIComponent(text)}&app_redirect=true`,
-          fallback: `https://www.instagram.com/`
+          // Tenta abrir o app nativo do Instagram
+          app: `instagram-stories://share?link_attribution=GameOculto&backgroundImage=${encodeURIComponent(imageUrl)}&sticker=undefined&title=${encodeURIComponent(shareText)}`,
+          // Fallback para web
+          web: `https://www.instagram.com/`
         },
-        'twitter': `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-        'whatsapp': `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`
+        'twitter': `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`,
+        'whatsapp': `https://wa.me/?text=${encodeURIComponent(shareText)}`
       };
       
-      // Lógica para Instagram (tenta abrir o app, se não conseguir, abre o site)
+      // Lógica para Instagram
       if (network === 'instagram') {
-        if (isMobile) {
-          // Tenta abrir o app do Instagram
-          const appUrl = shareUrls.instagram.app;
-          const webUrl = shareUrls.instagram.fallback;
-          
-          // Abre o app e, se falhar, redireciona para a web
-          window.location.href = appUrl;
-          setTimeout(() => {
-            if (document.hidden) {
-              // Se o usuário saiu da página (abriu o app), não faz nada
-              return;
-            }
-            // Se ainda estiver na página, abre a web
-            window.location.href = webUrl;
-          }, 300);
+        // Primeiro tenta usar a Web Share API (funciona em muitos dispositivos móveis)
+        if (navigator.share) {
+          navigator.share({
+            title: 'Game Oculto',
+            text: text,
+            url: url
+          }).catch(err => {
+            console.log('Erro ao compartilhar:', err);
+            // Se falhar, tenta o método alternativo
+            fallbackShare(network, shareUrls);
+          });
+        } else if (isMobile) {
+          // Método alternativo para mobile
+          fallbackShare(network, shareUrls);
         } else {
-          // Para desktop, abre o perfil no Instagram
-          window.open(shareUrls.instagram.web, '_blank', 'width=600,height=400');
+          // Para desktop, abre o Instagram com o link do artigo na descrição
+          window.open(`https://www.instagram.com/?url=${encodeURIComponent(url)}`, '_blank');
         }
       } 
       // Outras redes sociais
       else if (shareUrls[network]) {
         window.open(shareUrls[network], '_blank', 'width=600,height=400');
+      }
+      
+      // Função de fallback para compartilhamento
+      function fallbackShare(network, urls) {
+        if (network === 'instagram' && isMobile) {
+          // Tenta abrir o app do Instagram
+          window.location.href = urls[network].app;
+          
+          // Se não abrir o app em 300ms, redireciona para a web
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.location.href = urls[network].web;
+            }
+          }, 300);
+        } else {
+          window.open(urls[network], '_blank');
+        }
       }
     }
 
