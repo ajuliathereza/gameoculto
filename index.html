@@ -102,25 +102,7 @@
     </main>
   </div>
 
-  <!-- Script de AnÚncio -->
-  <script type="text/javascript">
-    // Função para carregar anÚncios
-    function loadAds() { 
-      // Código para carregar anÚncios será adicionado aqui
-      console.log('Script de anÚncios carregado');
-      
-      // Exemplo de como carregar um anÚncio
-      // const adContainer = document.getElementById('ad-container-top');
-      // if (adContainer) {
-      //   // Código do anÚncio será injetado aqui
-      // }
-    }
-    
-    // Carrega os anÚncios quando o documento estiver pronto
-    document.addEventListener('DOMContentLoaded', loadAds);
-  </script>
-  <script type="text/javascript" src="/js/ads.js"></script>
-  <script type="text/javascript" src="/js/ads2.js"></script>
+  <!-- Scripts de anúncios removidos -->
   
   <script>
     // Neon toggle functionality
@@ -238,41 +220,9 @@
     });
   </script>
   
-  <!-- Ad Container -->
-  <div id="ad-script-container" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; display: flex; justify-content: center; background: rgba(0,0,0,0.8); padding: 5px 0;">
-    <div id="ad-content" style="max-width: 100%; overflow: hidden; position: relative;">
-      <!-- Ad will be loaded here -->
-    </div>
-  </div>
-
-  <script>
-    // Load ad script with responsive handling
-    (function() {
-      var container = document.getElementById('ad-content');
-      if (!container) return;
-      
-      var script = document.createElement('script');
-      script.src = 'https://vemtoutcheeg.com/400/9524163';
-      script.onload = function() {
-        // After ad loads, adjust its size if needed
-        var iframe = container.querySelector('iframe');
-        if (iframe) {
-          iframe.style.maxWidth = '100%';
-          iframe.style.height = 'auto';
-          iframe.style.display = 'block';
-          iframe.style.margin = '0 auto';
-        }
-      };
-      
-      try {
-        container.appendChild(script);
-      } catch(e) {
-        console.error('Error loading ad:', e);
-      }
-    })();
-  </script>
+  <!-- Contêiner de anúncios removido -->
   
-  <script src="/global.js"></script>
+
 
 
 
