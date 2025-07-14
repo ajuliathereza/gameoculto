@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoções | Game Oculto</title>
+  <link rel="stylesheet" href="../style/promocoes.css">
+  <link rel="stylesheet" href="../style/menu-mobile-index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+         <a href="index.html">Início</a>
+<a href="artigos.html" class="menu-artigos">Artigos</a>
+<a href="downloads.html">Downloads</a>
+<a href="https://youtube.com" class="menu-youtube">YouTube</a>
+<a href="sobre.html">Sobre</a>
+<a href="promocoes.html">Promoções</a>
+
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content promocoes-container">
+      <h2>Promoções Ativas</h2>
+      <div class="promocoes-tabs">
+        <button class="tab-button active" onclick="showTab('games')">Games</button>
+        <button class="tab-button" onclick="showTab('technos')">Technos</button>
+      </div>
+
+      <div id="games" class="tab-content active">
+        <!-- Exemplo de item promocional de game -->
+        <div class="promo-item">
+          <img src="/images/promo1-2.jpg" alt="Injustice: Gods Among Us Ultimate Edition">
+          <img src="/images/promo1.jpg" alt="Injustice: Gods Among Us Ultimate Edition">
+          <img src="/images/promo1-3.jpg" alt="Injustice: Gods Among Us Ultimate Edition">
+          <h3>Injustice: Gods Among Us Ultimate Edition</h3>
+          <p><a href="https://click.linksynergy.com/link?id=rTdCnM4jIIw&offerid=1692636.467961524&type=2&murl=https%3a%2f%2fwww.nuuvem.com%2fbr-pt%2fitem%2finjustice-gods-among-us-ultimate-edition" target="_blank">-90% DE:R$89,99 POR:R$ 8,99 (Oferta acaba em 22 Dias)</a></p>
+          <div class="promo-site">Nuuvem| Steam | PC</div>
+        </div>
+      </div>
+
+      <div id="technos" class="tab-content">
+        <!-- Exemplo de item promocional de tecnologia -->
+        <div class="promo-item">
+          <img src="images/promos/headset.jpg" alt="Headset Gamer Shopee">
+          <p><a href="https://shopee.com/link-afiliado" target="_blank">Headset Gamer RGB</a></p>
+          <div class="promo-site">Shopee | Periférico</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      const buttons = document.querySelectorAll('.tab-button');
+      const tabs = document.querySelectorAll('.tab-content');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
