@@ -396,7 +396,29 @@
         <h2><span class="blinker">▌</span> <span id="typewriter-text">DESCUBRA JOGOS OCULTOS</span></h2>
       </section>
 
-      <!-- AnÚncio Topo -->
+      <!-- Campo de Busca -->
+      <div class="search-container" style="margin: 20px auto; max-width: 800px; padding: 0 15px;">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="🔍 Buscar artigos por título ou conteúdo..." 
+          style="
+            padding: 12px 20px;
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent);
+            color: var(--text);
+            font-family: var(--font-terminal);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+          "
+        >
+        <div id="searchResults" style="margin-top: 10px; color: var(--accent); text-align: right; font-size: 0.9em;"></div>
+      </div>
+
+      <!-- Anúncio Topo -->
       <div class="ad-container" style="margin: 20px auto; text-align: center; min-height: 90px; background-color: rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent);">
         <div id="ad-container-top" style="width: 728px; height: 90px;">
           <script type="text/javascript">
@@ -784,7 +806,68 @@
       
       // Start the typewriter effect after a short delay
       setTimeout(typeWriter, 1000);
+      
+      // Inicializa a funcionalidade de busca
+      setupSearch();
     });
+    
+    // Função de busca
+    function setupSearch() {
+      const searchInput = document.getElementById('searchInput');
+      const articles = document.querySelectorAll('.artigo-card');
+      const searchResults = document.getElementById('searchResults');
+      
+      // Adiciona um debounce para melhorar performance
+      function debounce(func, wait) {
+        let timeout;
+        return function() {
+          const context = this, args = arguments;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+      }
+      
+      function performSearch() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+        
+        articles.forEach(article => {
+          const title = article.querySelector('h3')?.textContent.toLowerCase() || '';
+          const content = article.textContent.toLowerCase();
+          const shouldShow = searchTerm === '' || 
+                           title.includes(searchTerm) || 
+                           content.includes(searchTerm);
+          
+          if (shouldShow) {
+            article.style.display = 'flex';
+            visibleCount++;
+          } else {
+            article.style.display = 'none';
+          }
+        });
+        
+        // Atualiza o contador de resultados
+        searchResults.textContent = `${visibleCount} de ${articles.length} artigos encontrados`;
+        
+        // Mostra/oculta a mensagem de nenhum resultado
+        if (searchTerm !== '' && visibleCount === 0) {
+          searchResults.innerHTML = 'Nenhum artigo encontrado. Tente outros termos de busca.';
+        } else if (searchTerm === '') {
+          searchResults.textContent = '';
+        }
+      }
+      
+      // Adiciona o evento de input com debounce
+      searchInput.addEventListener('input', debounce(performSearch, 300));
+      
+      // Foca no campo de busca quando a tecla '/' for pressionada
+      document.addEventListener('keydown', function(e) {
+        if (e.key === '/' && e.target !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    }
   </script>
 </body>
 </html>
