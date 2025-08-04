@@ -388,6 +388,38 @@ footer {
   .cards {
     grid-template-columns: 1fr;
   }
+
+  /* Estilo para os containers de anúncios em telas pequenas */
+  .ad-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 15px 0 !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+  }
+  
+  /* Ajusta o container interno do anúncio */
+  .ad-container > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  
+  /* Ajusta o iframe do anúncio */
+  .ad-container iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Ajustes específicos para os anúncios */
+  #ad-container-top,
+  #ad-container-middle {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
 
 @media (max-width: 768px) {
