@@ -1,0 +1,346 @@
+/* Lore Page Specific Styles - scoped to avoid impacting other pages */
+:root {
+  /* reusing variables from style.css; fallback if not loaded for any reason */
+  --lore-accent: var(--accent, #00fff7);
+  --lore-accent-alt: var(--accent-alt, #00ff88);
+  --lore-highlight: var(--highlight, #ff00ff);
+  --lore-bg: var(--bg-secondary, #111118);
+  --lore-text: var(--text, #e0e0ff);
+}
+
+/* ===== Chapter Cards (numbered) ===== */
+.counter-chapters {
+  counter-reset: chapter;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.chapter-card {
+  position: relative;
+  background: var(--lore-bg);
+  border: 1px solid var(--lore-accent-alt);
+  border-radius: 14px;
+  padding: 22px 18px 18px 18px;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  counter-increment: chapter;
+}
+
+.chapter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px var(--lore-accent-alt);
+}
+
+.chapter-badge {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000013;
+  border: 2px solid var(--lore-highlight);
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--lore-highlight);
+  text-shadow: 0 0 6px var(--lore-highlight);
+}
+
+.chapter-badge::before {
+  content: counter(chapter, decimal-leading-zero);
+  font-size: 12px;
+}
+
+.chapter-card h4 {
+  color: var(--lore-accent);
+  margin: 6px 0 10px;
+  font-size: 14px;
+  text-shadow: 0 0 5px var(--lore-accent);
+}
+
+.chapter-card p {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* small tag to highlight notes like [SPOILER], [CANÔNICO] */
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  border: 1px solid var(--lore-accent);
+  color: var(--lore-accent);
+  border-radius: 4px;
+  margin-left: 6px;
+  opacity: 0.9;
+}
+
+/* ===== Vertical Timeline ===== */
+.timeline {
+  position: relative;
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--lore-accent) 0%,
+    rgba(0, 255, 247, 0.2) 100%
+  );
+  box-shadow: 0 0 8px rgba(0, 255, 247, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 18px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 9px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #000013;
+  border: 2px solid var(--lore-accent);
+  box-shadow: 0 0 10px var(--lore-accent);
+}
+
+.timeline-content {
+  background: var(--lore-bg);
+  border: 1px solid rgba(0, 255, 247, 0.25);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.timeline-content h4 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: var(--lore-accent);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ===== Spoiler (native details/summary enhanced) ===== */
+.spoiler {
+  border: 1px dashed var(--lore-highlight);
+  border-radius: 10px;
+  background: rgba(255, 0, 255, 0.05);
+  overflow: hidden;
+}
+
+.spoiler > summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  list-style: none;
+  color: var(--lore-highlight);
+  text-shadow: 0 0 6px var(--lore-highlight);
+}
+
+.spoiler > summary::-webkit-details-marker {
+  display: none;
+}
+
+.spoiler[open] {
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.2);
+}
+
+.spoiler-content {
+  padding: 10px 12px 14px 12px;
+  border-top: 1px dashed rgba(255, 0, 255, 0.35);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .chapter-badge {
+    width: 40px;
+    height: 40px;
+    top: -12px;
+    left: -12px;
+  }
+  .timeline::before { left: 12px; }
+  .timeline-item { padding-left: 40px; }
+  .timeline-dot { left: 4px; }
+}
+
+/* ===== Lore Landing: Filter Bar ===== */
+.lore-filterbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--lore-bg);
+  border: 1px solid rgba(0, 255, 247, 0.25);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 18px;
+}
+
+.lore-search {
+  flex: 1 1 220px;
+  min-width: 200px;
+  background: #000013;
+  border: 1px solid var(--lore-accent);
+  color: var(--lore-text);
+  padding: 8px 10px;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 255, 247, 0.15) inset;
+}
+
+.lore-sort {
+  background: #000013;
+  border: 1px solid rgba(0, 255, 247, 0.4);
+  color: var(--lore-text);
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.pillbar { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  font-size: 11px;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 255, 247, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--lore-text);
+  background: rgba(0, 255, 247, 0.05);
+  transition: all .2s ease;
+}
+.pill:hover { box-shadow: 0 0 10px rgba(0,255,247,.2); transform: translateY(-1px); }
+.pill.active { border-color: var(--lore-accent); color: var(--lore-accent); }
+
+/* ===== Lore Landing: Grid ===== */
+.lore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.lore-item {
+  position: relative;
+  background: var(--lore-bg);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(0,255,136,0.18);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.lore-item:hover { transform: translateY(-4px); box-shadow: 0 0 18px var(--lore-accent-alt); }
+
+.lore-thumb { width: 100%; height: 140px; object-fit: cover; filter: grayscale(10%) contrast(1.15); }
+.lore-body { padding: 12px; }
+.lore-title { font-size: 14px; color: var(--lore-accent); margin: 0 0 6px 0; text-shadow: 0 0 5px var(--lore-accent); }
+.lore-excerpt { font-size: 11px; line-height: 1.5; opacity: 0.95; }
+
+.lore-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 10px; }
+.lore-tag { font-size: 10px; padding: 2px 6px; border: 1px solid rgba(0, 255, 247, 0.35); border-radius: 4px; color: var(--lore-text); }
+
+.lore-meta { font-size: 10px; color: #9aa; opacity: 0.9; margin-bottom: 8px; }
+
+.lore-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.btn-lore {
+  display: inline-block;
+  font-size: 11px;
+  padding: 6px 10px;
+  color: #000;
+  background: var(--lore-accent);
+  border: 1px solid var(--lore-accent);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.btn-lore:hover { filter: brightness(1.1); }
+
+.ribbon {
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  background: var(--lore-highlight);
+  color: #000;
+  padding: 4px 40px;
+  transform: rotate(-25deg);
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255,0,255,0.3);
+}
+
+@media (max-width: 768px) {
+  .lore-thumb { height: 120px; }
+}
+
+/* ===== References Callout ===== */
+.refs-callout {
+  margin-top: 24px;
+  background: linear-gradient(180deg, rgba(0,255,247,0.06), rgba(0,255,247,0.02));
+  border: 1px solid rgba(0,255,247,0.25);
+  border-left: 4px solid var(--lore-accent);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.refs-callout h3 {
+  margin: 0 0 8px 0;
+  color: var(--lore-accent);
+  text-shadow: 0 0 5px var(--lore-accent);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.refs-callout p { font-size: 11px; line-height: 1.6; opacity: 0.95; margin-bottom: 10px; }
+
+.refs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.refs-list li {
+  background: var(--lore-bg);
+  border: 1px solid rgba(0,255,247,0.15);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+}
+
+.refs-note { font-size: 10px; color: #9aa; margin-top: 8px; opacity: 0.9; }
+
+/* ===== Lore two-column layout (main + refs) ===== */
+/* Opção D — faixa full-width no final (sem sidebar) */
+.lore-layout {
+  display: block; /* volta para uma coluna */
+}
+
+.lore-main { min-width: 0; }
+
+.lore-refs { position: static; margin-top: 28px; }
+
+/* Ajuste visual do callout como faixa inferior */
+.refs-callout {
+  border-left: none;
+  border-top: 3px solid var(--lore-accent);
+  background: linear-gradient(180deg, rgba(0,255,247,0.05), transparent);
+}

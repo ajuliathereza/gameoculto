@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Oculto — Lore</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/menu-mobile-index.css">
+  <link rel="stylesheet" href="style/lore.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Botão NEON -->
+    <button id="neonToggle">NEON_BOOST</button>
+
+    <!-- Sidebar / Menu -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="artigos.html" class="menu-artigos">Artigos</a>
+          <!-- <a href="detonados.html">Detonados</a> -->
+          <a href="downloads.html">Downloads</a>
+          <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="promocoes.html">Promoções</a>
+          <a href="lore.html" class="active">Lore</a>
+        </nav>
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <!-- Hero -->
+      <section class="hero">
+        <h2><span class="blinker">▌</span> LORE — Histórias e Universos de Jogos</h2>
+      </section>
+
+      <!-- Lore Landing: Barra de filtros -->
+      <section class="lore-filterbar">
+        <input class="lore-search" id="loreSearch" type="search" placeholder="Buscar jogo ou tema..." aria-label="Buscar">
+        <select class="lore-sort" id="loreSort" aria-label="Ordenar">
+          <option value="name-asc">Ordenar: Nome (A-Z)</option>
+          <option value="name-desc">Ordenar: Nome (Z-A)</option>
+          <option value="status">Ordenar: Status</option>
+        </select>
+        <div class="pillbar" id="lorePills" aria-label="Filtros">
+          <button class="pill active" data-filter="all">Tudo</button>
+          <button class="pill" data-filter="indie">Indie</button>
+          <button class="pill" data-filter="aaa">AAA</button>
+          <button class="pill" data-filter="psicológico">Psicológico</button>
+          <button class="pill" data-filter="tiro">Tiro</button>
+          <button class="pill" data-filter="pixel-art">Pixel Art</button>
+          <button class="pill" data-filter="scifi">Sci‑Fi</button>
+          <button class="pill" data-filter="estrategia">Estratégia</button>
+        </div>
+      </section>
+
+      <!-- Layout em duas colunas: conteúdo principal + referências -->
+      <div class="lore-layout">
+        <div class="lore-main">
+          <!-- Lore Landing: Grid de jogos -->
+          <section class="lore-grid" id="loreGrid">
+        <!-- Halo -->
+        <article class="lore-item" data-name="Halo" data-tags="aaa tiro scifi" data-status="embreve">
+          <span class="ribbon">Leia</span>
+          <img class="lore-thumb" src="images/halo_1.jpg" alt="Halo">
+          <div class="lore-body">
+            <h3 class="lore-title">Halo</h3>
+            <div class="lore-tags">
+              <span class="lore-tag">AAA</span>
+              <span class="lore-tag">Tiro</span>
+              <span class="lore-tag">Sci‑Fi</span>
+            </div>
+            <p class="lore-excerpt">A guerra entre a humanidade e a aliança Covenant — mitologia Forerunner, Spartans e destino da galáxia.</p>
+            <div class="lore-meta">Leia!</div>
+            <div class="lore-actions">
+              <a class="btn-lore" href="/lores/lore-halo.html" >Leia!</a>
+            </div>
+          </div>
+        </article>
+
+
+         <!-- Halo -->
+        <article class="lore-item" data-name="Halo" data-tags="aaa tiro scifi" data-status="embreve">
+          <span class="ribbon">Em breve</span>
+          <img class="lore-thumb" src="images/workinprogress.png" alt="Halo">
+          <div class="lore-body">
+            <h3 class="lore-title">Em breve</h3>
+            <div class="lore-tags">
+              <span class="lore-tag">Indie</span>
+              <span class="lore-tag">RPG</span>
+              <span class="lore-tag">Fantasia</span>
+
+            </div>
+            <p class="lore-excerpt">The Children of Morta conta a saga da família Bergson, guardiã da Montanha Morta, enfrentando a corrupção que ameaça o mundo.
+Entre batalhas e sacrifícios, cada membro luta para proteger seu legado, unindo coragem, família e esperança.</p>
+            <div class="lore-meta">Status: em breve</div>
+            <div class="lore-actions">
+              <a class="btn-lore" href="#" aria-disabled="true" onclick="return false;">Em breve</a>
+            </div>
+          </div>
+        </article>
+
+         <!-- Halo -->
+        <article class="lore-item" data-name="Halo" data-tags="aaa tiro scifi" data-status="embreve">
+          <span class="ribbon">Em breve</span>
+          <img class="lore-thumb" src="images/workinprogress.png" alt="Halo">
+          <div class="lore-body">
+            <h3 class="lore-title">Em Breve</h3>
+            <div class="lore-tags">
+              <span class="lore-tag">Cyberpunk</span>
+              <span class="lore-tag">RPG</span>
+              <span class="lore-tag">Fantasia Urbana</span>
+
+            </div>
+            <p class="lore-excerpt">Shadowrun se passa em um mundo cyberpunk onde magia e tecnologia coexistem, e mercenários (shadowrunners) lutam para sobreviver.
+Entre corporações, criaturas mágicas e decisões perigosas, cada missão define o destino de seus protagonistas.</p>
+            <div class="lore-meta">Status: em breve</div>
+            <div class="lore-actions">
+              <a class="btn-lore" href="#" aria-disabled="true" onclick="return false;">Em breve</a>
+            </div>
+          </div>
+        </article>
+
+        
+
+
+          <!-- Observação: adicione novos jogos duplicando <article class="lore-item"> -->
+        </div>
+        <aside class="lore-refs" aria-label="Fontes e Referências">
+          <div class="refs-callout">
+            <h3>📚 Fontes e Referências</h3>
+            <p>[Credite materiais usados: sites, vídeos, livros, entrevistas, wikis e documentos do jogo.]</p>
+            <ul class="refs-list">
+              <li><!-- Exemplo: --> Site oficial / Wiki do jogo</li>
+              <li><!-- Exemplo: --> Entrevista com desenvolvedores</li>
+              <li><!-- Exemplo: --> Vídeo-ensaio / Documentário</li>
+              <li><!-- Exemplo: --> Livro / Artigo acadêmico</li>
+            </ul>
+            <div class="refs-note">Dica: mantenha as referências atualizadas e padronizadas.</div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Neon toggle functionality (mesmo padrão do index)
+    document.addEventListener('DOMContentLoaded', function() {
+      const neonToggle = document.getElementById('neonToggle');
+      if (neonToggle) {
+        neonToggle.addEventListener('click', function() {
+          document.body.classList.toggle('neon-mode');
+          if (document.body.classList.contains('neon-mode')) {
+            localStorage.setItem('neonMode', 'enabled');
+          } else {
+            localStorage.setItem('neonMode', 'disabled');
+          }
+        });
+        if (localStorage.getItem('neonMode') === 'enabled') {
+          document.body.classList.add('neon-mode');
+        }
+      }
+    });
+  </script>
+  <script>
+    // Apenas efeito simples no título (sem rotação de imagens nesta página)
+    document.addEventListener('DOMContentLoaded', function() {
+      const hero = document.querySelector('.hero h2');
+      if (hero) {
+        hero.style.textShadow = '0 0 3px var(--accent), 0 0 5px var(--accent)';
+      }
+      // Toggle visual alternativo como no index
+      const toggle = document.getElementById('neonToggle');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          document.body.classList.toggle('neon-on');
+        });
+      }
+    });
+  </script>
+  <script>
+    // Filtros e ordenação da página de Lores
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('loreGrid');
+      if (!grid) return;
+
+      const items = Array.from(grid.querySelectorAll('.lore-item'));
+      const search = document.getElementById('loreSearch');
+      const sortSel = document.getElementById('loreSort');
+      const pillsBar = document.getElementById('lorePills');
+
+      let activeFilter = 'all';
+
+      function normalize(str) {
+        return (str || '').toString().toLowerCase();
+      }
+
+      function applyFilters() {
+        const q = normalize(search && search.value);
+        items.forEach(el => {
+          const name = normalize(el.getAttribute('data-name'));
+          const tags = normalize(el.getAttribute('data-tags'));
+          const matchesText = !q || name.includes(q) || tags.includes(q);
+          const matchesTag = activeFilter === 'all' || tags.split(/\s+/).includes(activeFilter);
+          el.style.display = matchesText && matchesTag ? '' : 'none';
+        });
+      }
+
+      function applySort() {
+        const val = sortSel ? sortSel.value : 'name-asc';
+        const statusRank = { disponivel: 0, embreve: 1 };
+        const visibleItems = items.filter(el => el.style.display !== 'none');
+        const comparator = (a, b) => {
+          if (val === 'name-desc' || val === 'name-asc') {
+            const an = normalize(a.getAttribute('data-name'));
+            const bn = normalize(b.getAttribute('data-name'));
+            return val === 'name-asc' ? an.localeCompare(bn) : bn.localeCompare(an);
+          }
+          if (val === 'status') {
+            const as = normalize(a.getAttribute('data-status'));
+            const bs = normalize(b.getAttribute('data-status'));
+            const ar = statusRank[as] ?? 99;
+            const br = statusRank[bs] ?? 99;
+            if (ar !== br) return ar - br; // disponivel vem antes de embreve
+            // fallback por nome
+            const an = normalize(a.getAttribute('data-name'));
+            const bn = normalize(b.getAttribute('data-name'));
+            return an.localeCompare(bn);
+          }
+          return 0;
+        };
+
+        visibleItems.sort(comparator).forEach(el => grid.appendChild(el));
+      }
+
+      // Listeners
+      if (search) search.addEventListener('input', () => { applyFilters(); applySort(); });
+      if (sortSel) sortSel.addEventListener('change', () => applySort());
+      if (pillsBar) {
+        pillsBar.addEventListener('click', (e) => {
+          const btn = e.target.closest('.pill');
+          if (!btn) return;
+          pillsBar.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter || 'all';
+          applyFilters();
+          applySort();
+        });
+      }
+
+      // Inicializa
+      applyFilters();
+      applySort();
+    });
+  </script>
+</body>
+</html>

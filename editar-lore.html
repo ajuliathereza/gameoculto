@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de Lore — Game Oculto</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/menu-mobile-index.css">
+  <link rel="stylesheet" href="style/lore.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    .editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .editor-form { display: grid; gap: .75rem; }
+    .editor-form label { font-weight: 600; }
+    .editor-form input, .editor-form textarea { width: 100%; padding: .6rem .7rem; border: 1px solid var(--muted); background: var(--bg-darker); color: var(--fg); border-radius: 6px; }
+    .editor-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .5rem; }
+    .preview { border: 1px dashed var(--muted); border-radius: 8px; padding: 1rem; background: var(--bg-darker); max-height: 70vh; overflow: auto; }
+    .small { opacity: .8; font-size: .9rem; }
+    @media (max-width: 900px) { .editor-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="neonToggle">NEON_BOOST</button>
+
+    <aside class="sidebar">
+      <div>
+        <div class="logo">GAME OCULTO</div>
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="artigos.html" class="menu-artigos">Artigos</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="https://www.youtube.com/@GameOculto" class="menu-youtube" target="_blank">YouTube</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="promocoes.html">Promoções</a>
+          <a href="lore.html" class="active">Lore</a>
+        </nav>
+      </div>
+      <footer>
+        &copy; 2025 Game Oculto. Todos os direitos reservados.
+      </footer>
+    </aside>
+
+    <main class="content">
+      <section class="hero">
+        <h2><span class="blinker">▌</span> Editor de Lores</h2>
+        <p class="small">Gera um arquivo estático HTML usando o template em <code>lores/lore-template.html</code>. Depois, suba o arquivo para a pasta <code>lores/</code> e adicione o link em <code>lores/index.html</code>.</p>
+      </section>
+
+      <div class="editor-grid">
+        <form class="editor-form" id="loreForm" onsubmit="return false;">
+          <label>Nome do arquivo (slug)
+            <input id="slug" placeholder="ex: dead-space-origens" required>
+          </label>
+          <label>Título
+            <input id="title" placeholder="Título do Lore" required>
+          </label>
+          <label>Tags (separadas por vírgula)
+            <input id="tags" placeholder="AAA, Terror, Sci‑Fi">
+          </label>
+          <label>URL da imagem de capa
+            <input id="cover" placeholder="ex: ../images/capa.jpg">
+          </label>
+          <label>Resumo (meta description)
+            <textarea id="excerpt" rows="2" placeholder="1 a 2 frases curtas"></textarea>
+          </label>
+          <label>Conteúdo (HTML)
+            <textarea id="content" rows="10" placeholder="<h2>Introdução</h2> ..."></textarea>
+          </label>
+          <label>Referências (um por linha)
+            <textarea id="refs" rows="5" placeholder="Site oficial\nWiki\nVídeo-ensaio"></textarea>
+          </label>
+          <div class="editor-actions">
+            <button class="btn-lore" id="btnPreview">Pré-visualizar</button>
+            <button class="btn-lore" id="btnDownload">Baixar HTML</button>
+          </div>
+        </form>
+
+        <div class="preview" id="preview" aria-live="polite">
+          <em>Prévia aparecerá aqui…</em>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const neonToggle = document.getElementById('neonToggle');
+      if (neonToggle) {
+        neonToggle.addEventListener('click', function() {
+          document.body.classList.toggle('neon-mode');
+          localStorage.setItem('neonMode', document.body.classList.contains('neon-mode') ? 'enabled' : 'disabled');
+        });
+        if (localStorage.getItem('neonMode') === 'enabled') {
+          document.body.classList.add('neon-mode');
+        }
+      }
+
+      const $ = (id) => document.getElementById(id);
+      const form = $('loreForm');
+      const preview = $('preview');
+      const btnPrev = $('btnPreview');
+      const btnDown = $('btnDownload');
+
+      async function loadTemplate() {
+        const res = await fetch('lores/lore-template.html');
+        if (!res.ok) throw new Error('Não foi possível carregar o template.');
+        return await res.text();
+      }
+
+      function buildHTML(tpl) {
+        const dateStr = new Date().toISOString().slice(0,10);
+        const refsLines = $('refs').value.trim().split(/\n+/).filter(Boolean).map(li => `<li>${li}</li>`).join('\n');
+        return tpl
+          .replaceAll('{{TITLE}}', $('title').value || '')
+          .replaceAll('{{DATE}}', dateStr)
+          .replaceAll('{{TAGS}}', ($('tags').value || '').split(',').map(s => s.trim()).filter(Boolean).join(' • '))
+          .replaceAll('{{COVER}}', $('cover').value || '')
+          .replaceAll('{{EXCERPT}}', $('excerpt').value || '')
+          .replaceAll('{{CONTENT}}', $('content').value || '')
+          .replaceAll('{{REFERENCES}}', refsLines || '<li>—</li>');
+      }
+
+      async function generateHTML() {
+        const tpl = await loadTemplate();
+        return buildHTML(tpl);
+      }
+
+      btnPrev.addEventListener('click', async () => {
+        try {
+          const html = await generateHTML();
+          preview.innerHTML = html;
+        } catch (e) {
+          preview.textContent = e.message;
+        }
+      });
+
+      btnDown.addEventListener('click', async () => {
+        try {
+          const slug = $('slug').value.trim();
+          if (!slug) { alert('Informe o slug (nome do arquivo).'); return; }
+          const html = await generateHTML();
+          const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${slug}.html`;
+          a.click();
+          URL.revokeObjectURL(url);
+        } catch (e) {
+          alert(e.message);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
