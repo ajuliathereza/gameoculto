@@ -271,6 +271,9 @@
   text-shadow: 0 0 8px var(--cp-glow);
 }
 
+
+
+
 @media (max-width: 680px) {
   .single-content h2 + .halo-card p:first-of-type::first-letter {
     float: none;
